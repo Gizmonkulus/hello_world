@@ -16,7 +16,7 @@
 //     b = prompt('На сколько оцените его?'),
 //     c = prompt('Один из последних просмотренных фильмов?'),
 //     d = prompt('На сколько оцените его?');
-    
+
 //     personalMovieDB.movies[a] = b;
 //     personalMovieDB.movies[c] = d;
 
@@ -97,7 +97,7 @@
 // for (let i = 1; i <= 2; i++) {
 //         const a = prompt('Один из последних просмотренных фильмов?'),
 //         b = prompt('На сколько оцените его?');
-        
+
 //         if (a != null && b != null && a != '' && b != '' && a.length < 5 && b.length < 5 ) {                
 //             personalMovieDB.movies[a] = b;
 //             console.log('done');
@@ -105,7 +105,7 @@
 //             else {
 //                 console.log('error');
 //                 i--;
-                
+
 //             }
 // }  
 // console.log(personalMovieDB);
@@ -193,73 +193,392 @@
 
 //_____________Практика 2 (18)
 
-let numberOfFilms;
+// let numberOfFilms;
 
-function start() {
-    numberOfFilms = +prompt('Сколько фильмов вы уже посмотрели?', '');
+// function start() {
+//     numberOfFilms = +prompt('Сколько фильмов вы уже посмотрели?', '');
 
-    while (numberOfFilms == ''|| numberOfFilms ==null || isNaN(numberOfFilms) ) {
-        numberOfFilms = +prompt('Сколько фильмов вы уже посмотрели?', '');
-    }
-}
-//start();
+//     while (numberOfFilms == ''|| numberOfFilms ==null || isNaN(numberOfFilms) ) {
+//         numberOfFilms = +prompt('Сколько фильмов вы уже посмотрели?', '');
+//     }
+// }
+// //start();
+
+// const personalMovieDB = {
+//     count: numberOfFilms,        
+//     movies:{},
+//     actors: null,
+//     genres: [],
+//     privat: false
+// };
+
+// function rememberMyFilms(){
+// for (let i = 1; i <= 2; i++) {
+//         const a = prompt('Один из последних просмотренных фильмов?'),
+//         b = prompt('На сколько оцените его?');
+
+//         if (a != null && b != null && a != '' && b != '' && a.length < 5 && b.length < 5 ) {                
+//             personalMovieDB.movies[a] = b;
+//             console.log('done');
+//         }         
+//             else {
+//                 console.log('error');
+//                 i--;
+
+//             }
+// }  
+
+
+// }
+// //rememberMyFilms();
+
+// function detectPersonalLevel(){
+//     if (personalMovieDB.count < 10) {
+//         alert('Просмотрено довольно мало фильмов');
+// } else if (10 <= personalMovieDB.count && personalMovieDB.count <= 30) { 
+//         alert('Вы классический зритель');
+// } else if (personalMovieDB.count > 30) {
+//         alert('Вы киноман');
+// } else {
+//          alert('Произошла ошибка');
+//      }
+// }
+// //detectPersonalLevel();
+
+// function writeYourGenres (){
+//     for (let i = 0; i <= 2; i++) {
+//     personalMovieDB.genres[i] = prompt(`Ваш любимый жанр под номером ${i + 1}?`); 
+//     }
+// }
+// writeYourGenres();
+
+// // function showMyDB() {
+// //     (personalMovieDB.privat === false) ? console.log(personalMovieDB) : console.log('error');
+// // }
+// // showMyDB();
+
+// function showMyDB(hidden) {
+//     if (!hidden) {
+//         console.log(personalMovieDB);
+//     }
+// }
+// showMyDB(personalMovieDB.privat);
+
+
+//_____________Callback function
+// function first() {
+//     //do something
+//     setTimeout(function() {
+//        console.log(1);
+//     }, 500);
+// }
+// function second() {
+//     console.log(2);
+// }
+// first();
+// second();
+
+// function learnJS (lang, callback) {        
+//     console.log(`я учу: ${lang}`);    
+//     callback();
+// }
+
+// function done() {
+//     console.log('Я прошел этот урок!');
+// }
+
+// learnJS('JavaScript', done);
+
+
+//_____________ОБЪЕКТЫ___________
+
+// const options = {
+//     name: 'test',
+//     width: 1024,
+//     height: 768,
+//     colors: {
+//         border: 'black',
+//         bg: 'red'
+//     },
+//     makeTest: function() {        //____ФУНКЦИИ ВНУТРИ ОБЪЕКТА
+//         console.log('test');
+//     }
+// };
+
+// options.makeTest();
+
+// const {border, bg} = options.colors;
+// console.log(border);
+
+
+//console.log(Object.keys(options).length);      //_____Получение количества объектов 
+
+// delete options.colors.border;   //__УДАЛЕНИЕ
+// options.colors['private'] = true;   //Добавление
+// console.log(options);
+
+// let counter = 0;    //___Получение количества объектов перебором
+// for (let key in options) {              //___ПЕРЕБОР ОБЪЕКТОВ
+//     if (typeof(options[key]) === 'object') {
+//         for (let i in options[key]) {        //__Перебор объктов внутри объекта
+//             console.log(`Свойство ${i} имеет значение ${options[key][i]}`);
+//             counter++;
+//         }
+//     } else {
+//         console.log(`Свойство ${key} имеет значение ${options[key]}`);
+//         counter++;
+//     }
+// }
+// console.log(counter);
+
+
+
+//_____________________МАССИВЫ_______________
+
+//  const arr = [1, 12, 23, 26, 18];
+
+//  arr.sort(compareNum); //__Сортировка от < 2 >
+//  console.log(arr);
+//  function compareNum (a, b) {
+//      return a - b;
+//  }
+
+// arr.forEach(function(item, i, arr){
+//     console.log(`${i}: ${item} внутри массива ${arr}`);
+// });
+// //arr.pop();   //___Удаление последнего элемента из массива
+// // arr.push(10);  //___Добавление элемента в конец массива
+// // console.log(arr);
+
+// // for (let i = 0; i < arr.length; i++) {
+// //     console.log(arr[i]);
+// // }
+// arr[99] = 0;
+// // for (let value of arr) {
+// //     console.log(value);
+// // }
+// console.log(arr.length);
+// console.log(arr);
+
+
+// const str = prompt("","");  // ___Создание массива из введённых данных чере ", "]]
+// const products = str.split(", ");
+// products.sort();
+// //console.log(products);
+// console.log(products.join('; '));
+
+
+//_________Передача по ссылке или по значению
+
+// let a = 5,
+//     b = a;
+
+// b = b + 5;
+// console.log(b);
+// console.log(a);
+
+// const obj = {
+//     a: 5,
+//     b: 1
+// };
+
+// const copy = obj; //Передаёт ссылку
+// copy.a = 10;
+// console.log(copy);
+// console.log(obj);
+
+
+// function copy (mainObj) { //___Копирование
+//     let objCopy = {};
+
+//     let key;
+//     for (key in mainObj) {
+//         objCopy[key] = mainObj[key];
+//     }
+//     return objCopy;
+// }
+
+// const numbers = {
+//     a: 2,
+//     b: 5,
+//     c: {
+//         x: 7,
+//         y: 4
+//     }
+// };
+
+// const newMumbbers = copy(numbers);
+// newMumbbers.a = 10;
+// newMumbbers.c.x = 10;
+
+// console.log(newMumbbers);
+// console.log(numbers);
+
+// const add = {
+//     d: 17,
+//     e: 20
+// };
+
+// console.log(Object.assign(numbers, add));
+
+//  const clone = Object.assign({}, add);
+
+//  clone.d = 20;
+//  console.log(add);
+//  console.log(clone);
+
+// const oldArr = ['a', 'b', 'c'];
+// const newArr = oldArr.slice();
+// newArr[1]='asdadadasd';
+// console.log(newArr);
+// console.log(oldArr);
+
+// const video = ['youtube', 'vimeo', 'rutube'],
+//       blogs = ['wordpress', 'livejournal', 'blogger'],
+//       internet = [...video, ...blogs, 'vk', 'facebook'];
+
+// console.log(internet);
+
+
+// function log (a, b, c) {
+//     console.log(a);
+//     console.log(b);
+//     console.log(c);
+// }
+// const num = [2, 5, 7];
+// log(...num);  //Раскладывание объкта или массива
+
+
+// const array = ['a', 'b'];
+// const newArrray = [...array];
+
+
+// const q = {
+//     one: 1,
+//     two: 2
+// };
+
+// const newObj = {...q};
+
+
+
+//___________ООП____________
+
+// let str = 'some';
+// let strObj = new String(str);
+
+// // console.log(typeof(str));
+// // console.log(typeof(strObj));
+
+// console.dir([1, 2, 3]);
+
+// const soldier = {
+//     health: 400,
+//     armor: 100,
+//     sayHello: function() {
+//         console.log('Hello');
+//     }
+// };
+
+// const john = Object.create(soldier); // Создание прототипных связей
+
+// // const john = {
+// //     health: 100
+// // };
+
+// //john.__proto__ = soldier;
+// //Object.setPrototypeOf(john, soldier);
+// //console.log(john.sayHello);
+// john.sayHello();
+
+
+//__________ПРАКТИКА 3 (24)___________
 
 const personalMovieDB = {
-    count: numberOfFilms,        
-    movies:{},
+    count: 0,
+    movies: {},
     actors: null,
     genres: [],
-    privat: false
-};
+    privat: false,
+    start: function () {
+        personalMovieDB.count = +prompt('Сколько фильмов вы уже посмотрели?', '');
 
-function rememberMyFilms(){
-for (let i = 1; i <= 2; i++) {
-        const a = prompt('Один из последних просмотренных фильмов?'),
-        b = prompt('На сколько оцените его?');
-        
-        if (a != null && b != null && a != '' && b != '' && a.length < 5 && b.length < 5 ) {                
-            personalMovieDB.movies[a] = b;
-            console.log('done');
-        }         
-            else {
+        while (personalMovieDB.count == '' || personalMovieDB.count == null || isNaN(personalMovieDB.count)) {
+            personalMovieDB.count = +prompt('Сколько фильмов вы уже посмотрели?', '');
+        }
+    },
+    rememberMyFilms: function rememberMyFilms() {
+        for (let i = 1; i <= 2; i++) {
+            const a = prompt('Один из последних просмотренных фильмов?'),
+                b = prompt('На сколько оцените его?');
+
+            if (a != null && b != null && a != '' && b != '' && a.length < 15 && b.length < 15) {
+                personalMovieDB.movies[a] = b;
+                console.log('done');
+            } else {
                 console.log('error');
                 i--;
-                
             }
-}  
+        }
+    },
+    detectPersonalLevel: function () {
+        if (personalMovieDB.count < 10) {
+            alert('Просмотрено довольно мало фильмов');
+        } else if (10 <= personalMovieDB.count && personalMovieDB.count <= 30) {
+            alert('Вы классический зритель');
+        } else if (personalMovieDB.count > 30) {
+            alert('Вы киноман');
+        } else {
+            alert('Произошла ошибка');
+        }
+    },
+    showMyDB: function (hidden) {
+        if (!hidden) {
+            console.log(personalMovieDB);
+        }
+    },
+    toggleVisibleMyDB: function () {
+        (personalMovieDB.privat === false) ? (personalMovieDB.privat = true) : (personalMovieDB.privat = false);
+    },
+    writeYourGenres: function () {
+        for (let i = 0; i <= 2; i++) {
+            // let genre = prompt(`Ваш любимый жанр под номером ${i + 1}?`);
+
+            // if (genre != null && genre != '') {
+            //     personalMovieDB.genres[i] = genre;
+            //     console.log('done');
+            // } else {
+            //     console.log('error');
+            //     i--;
+            // }
+        }    
+
+        for (let i = 0; i < 1; i++) {
+            let genres = prompt(`Введите ваши любимые жанры через запятую`).toLowerCase();
+
+            if (genres != null && genres != '') {
+                personalMovieDB.genres = genres.split(', ');
+                personalMovieDB.genres.sort();
+                console.log('done');
+            } else {
+                console.log('error');
+                i--;
+            }
+
+        }
+
+        personalMovieDB.genres.forEach(function (item, i) {
+            console.log(`Любимый жанр ${i + 1} - это ${item}`);
+        });
+    },
+};
 
 
-}
-//rememberMyFilms();
 
-function detectPersonalLevel(){
-    if (personalMovieDB.count < 10) {
-        alert('Просмотрено довольно мало фильмов');
-} else if (10 <= personalMovieDB.count && personalMovieDB.count <= 30) { 
-        alert('Вы классический зритель');
-} else if (personalMovieDB.count > 30) {
-        alert('Вы киноман');
-} else {
-         alert('Произошла ошибка');
-     }
-}
-//detectPersonalLevel();
+console.log(personalMovieDB);
 
-function writeYourGenres (){
-    for (let i = 0; i <= 2; i++) {
-    personalMovieDB.genres[i] = prompt(`Ваш любимый жанр под номером ${i + 1}?`); 
-    }
-}
-writeYourGenres();
+// const arr = [1, 12, 23, 26, 18];
 
-// function showMyDB() {
-//     (personalMovieDB.privat === false) ? console.log(personalMovieDB) : console.log('error');
-// }
-// showMyDB();
-
-function showMyDB(hidden) {
-    if (!hidden) {
-        console.log(personalMovieDB);
-    }
-}
-showMyDB(personalMovieDB.privat);
+// arr.forEach(function(item, i, arr){
+//    console.log(`${i}: ${item} внутри массива ${arr}`);
+// });
