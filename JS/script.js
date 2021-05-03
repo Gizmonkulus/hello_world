@@ -628,20 +628,4 @@
 
 //___________DOM_______________
 
-// const box = document.getElementById('box');
-
-// const btns = document.getElementsByTagName('button')[1]; //Сразу указываем нужную кнопку
-// console.log(btns[1]); //Берем из всего списка нужную
-
-// const circles = document.getElementsByClassName('circle');
-
-// const hearts = document.querySelectorAll('.heart');
-// hearts.forEach(item => {    //Вывод всех элементов с классом .heart
-//     console.log(item);
-// });
-
-// const oneHeart = document.querySelector('.heart'); //Берет только первый селектор с указанным селектором
-// console.log(oneHeart);
-
-
 //__________Работа с DOM______________________Смотри в DOM
